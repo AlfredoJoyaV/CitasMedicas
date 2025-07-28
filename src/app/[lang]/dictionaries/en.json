@@ -1,0 +1,24 @@
+{
+    "HomePage": {
+        "title": "Welcome to the app tell me what you think about me",
+        "description": "You can leave me a comment or suggestion about my personality, I would like to know your opinion."
+    },
+    "ComponentsForm": {
+        "formName": "Nombre del paciente",
+        "formLastName": "Apellido del paciente",
+        "formDateOfBorn": "Fecha de nacimiento",
+        "formGender": "Genero",
+        "formCellPhone": "Numero de telefono",
+        "fomrEmail": "Correo electronico",
+        "fomrDate": "Fecha de la cita",
+        "fomrHour": "Hora de la cita",
+        "placeholderName": "Escribe tu nombre",
+        "placeholderLastName": "Escribe tu apellido",
+        "placeholderDateOfBorn": "Seleciona tu fecha de nacimiento",
+        "placeholderGender": "Seleciona tu genero",
+        "placeholderCellPhone": "Escribe tu numero de telefono",
+        "placeholderEmail": "Escribe tu correo electronico",
+        "placeholderDate": "Seleciona la fecha de la cita",
+        "placeholderHour": "Seleciona la hora de la cita"
+    }
+}
