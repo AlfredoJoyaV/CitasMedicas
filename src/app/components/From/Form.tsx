@@ -36,9 +36,7 @@ type Inputs = {
 export const Form = (FromProps:FromProps) => {
   const {register, handleSubmit, watch, formState:{errors}} = useForm<Inputs>()
   
-  console.log("ERRORES EN FORM", errors);
   const onSubmit = (data:Inputs) => {
-    
     console.log("Formulario enviado", data);
   }
 
@@ -46,6 +44,7 @@ export const Form = (FromProps:FromProps) => {
     <div className="bg-white shadow-md rounded-lg p-6 max-w-2x1 mx-auto mt-6">
         <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
             <div className='grid grid-cols-1 gap-4'>
+              
               <div>
                 <label htmlFor='name' className="italic font-light text-2xl text-black">
                   {FromProps.formName}
@@ -57,7 +56,12 @@ export const Form = (FromProps:FromProps) => {
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderName}
                 />
+                {
+                  errors.name &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.name.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='lastname' className="italic font-light text-2xl text-black">
                   {FromProps.formLastName}
@@ -69,7 +73,12 @@ export const Form = (FromProps:FromProps) => {
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderLastName}
                 />
+                {
+                  errors.lastname &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.lastname.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='dateofborn' className="italic font-light text-2xl text-black">
                   {FromProps.formDateOfBorn}
@@ -81,7 +90,12 @@ export const Form = (FromProps:FromProps) => {
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderDateOfBorn}
                 />
+                {
+                  errors.date &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.date.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='gender' className="italic font-light text-2xl text-black">
                   {FromProps.formGender}
@@ -96,6 +110,10 @@ export const Form = (FromProps:FromProps) => {
                   <option value="masculino">Masculino</option>
                   <option value="femenino">Femenino</option>
                 </select>
+                {
+                  errors.gender &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.gender.message}</p>
+                }
               </div>
 
               <div>
@@ -109,19 +127,29 @@ export const Form = (FromProps:FromProps) => {
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderCellPhone}
                 />
+                {
+                  errors.cellphone &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.cellphone.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='email' className="italic font-light text-2xl text-black">
                  {FromProps.fomrEmail} 
                 </label>
                 <input 
-                  type="email"
+                  type="text"
                   id='email'
                   {...register("email", {required: "El correo es obligatorio"})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderEmail}
                 />
+                {
+                  errors.email &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.email.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='date' className="italic font-light text-2xl text-black">
                   {FromProps.fomrDate}
@@ -133,7 +161,12 @@ export const Form = (FromProps:FromProps) => {
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500' 
                   placeholder={FromProps.placeholderDate}
                 />
+                {
+                  errors.date &&
+                  <p className='text-red-500 text-xs mt-1'>{errors.date.message}</p>
+                }
               </div>
+
               <div>
                 <label htmlFor='hour' className="italic font-light text-2xl text-black">
                   {FromProps.fomrHour}
@@ -155,7 +188,12 @@ export const Form = (FromProps:FromProps) => {
                 <option value="16:00">16:00</option>
                 <option value="17:00">17:00</option>
               </select>
+              {
+                errors.hour &&
+                <p className='text-red-500 text-xs mt-1'>{errors.hour.message}</p>
+              }
               </div>
+
               <div className='flex justify-center'>
                 <button 
                   type='submit'
@@ -164,6 +202,7 @@ export const Form = (FromProps:FromProps) => {
                   enviar
                 </button>
               </div>
+
             </div>
         </form>
     </div>
