@@ -52,7 +52,12 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="text"
                   id='name'
-                  {...register("name", {required: "El nombre es obligatorio"})}
+                  {...register("name",
+                    {required: "El nombre es obligatorio",
+                    minLength:{value: 2, message: "El nombre es muy corto"},
+                    maxLength:{value: 60, message: "El nombre es muy largo"},
+                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, message: "El nombre solo puede contener letras"}}
+                  )}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderName}
                 />
@@ -69,7 +74,12 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="text"
                   id='lastname'
-                  {...register("lastname", {required: "El apellido es obligatorio"})}
+                  {...register("lastname", 
+                    {required: "El apellido es obligatorio", 
+                    minLength:{value: 2, message: "El apellido es muy corto"}, 
+                    maxLength:{value: 60, message: "El apellido es muy largo"},
+                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, message: "El apellido solo puede contener letras"}}
+                  )}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderLastName}
                 />
@@ -140,7 +150,7 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="text"
                   id='email'
-                  {...register("email", {required: "El correo es obligatorio"})}
+                  {...register("email", {required: "El correo es obligatorio", pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/i, message: "El email no es valido"}})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderEmail}
                 />
