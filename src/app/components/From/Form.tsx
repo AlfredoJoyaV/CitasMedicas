@@ -1,5 +1,6 @@
 'use client';
-import {useForm, SubmitHandler} from 'react-hook-form'
+import { createcitaMedica, CitaMedicaData } from '@/services/supabase.service';
+import {useForm} from 'react-hook-form'
 
 type FromProps = {
     formName: string;
@@ -37,7 +38,17 @@ export const Form = (FromProps:FromProps) => {
   const {register, handleSubmit, watch, formState:{errors}} = useForm<Inputs>()
   
   const onSubmit = (data:Inputs) => {
-    console.log("Formulario enviado", data);
+    const citaMedicaData: CitaMedicaData = {
+      name: data.name,
+      lastname: data.lastname,
+      dateofborn: new Date(data.dateofborn).toISOString(),
+      gender: data.gender,
+      cellphone: data.cellphone,
+      email: data.email,
+      date: new Date(data.date).toISOString(),
+      hour: data.hour
+    };
+    createcitaMedica(citaMedicaData)
   }
 
   return (
