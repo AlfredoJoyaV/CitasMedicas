@@ -19,7 +19,23 @@
         "placeholderCellPhone": "Escribe tu numero de telefono",
         "placeholderEmail": "Escribe tu correo electronico",
         "placeholderDate": "Seleciona la fecha de la cita",
-        "placeholderHour": "Seleciona la hora de la cita"
+        "placeholderHour": "Seleciona la hora de la cita",
+        "requiredName": "El nombre es obligatorio",
+        "minLengthName": "El nombre es muy corto",
+        "maxLengthName": "El nombre es muy largo",
+        "messageName": "El nombre solo puede contener letras",
+        "requiredLastname": "El apellido es obligatorio",
+        "minLengthLastname": "El apellido es muy corto",
+        "maxLengthLastname": "El apellido es muy largo",
+        "messageLastname": "El apellido solo puede contener letras",
+        "requiredDateofborn": "El fecha de nacimiento es obligatorio",
+        "requiredGender": "El genero es obligatorio",
+        "requiredCellphone": "El numero de celular es obligatorio",
+        "requiredEmail": "El correo es obligatorio",
+        "messageEmail": "El email no es valido",
+        "requiredDate": "El dia de la cita es obligatorio",
+        "requiredHour": "La hora de la cita es obligatorio"
+
     }
     
 }

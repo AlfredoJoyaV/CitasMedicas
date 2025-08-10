@@ -19,7 +19,22 @@ type FromProps = {
     placeholderCellPhone: string;
     placeholderEmail: string;
     placeholderDate: string;
-    placeholderHour: string
+    placeholderHour: string;
+    requiredName: string;
+    minLengthName: string;
+    maxLengthName: string;
+    messageName: string;
+    requiredLastname: string;
+    minLengthLastname: string;
+    maxLengthLastname: string;
+    messageLastname: string
+    requiredDateofborn: string
+    requiredGender: string
+    requiredCellphone: string
+    requiredEmail: string
+    messageEmail: string
+    requiredDate: string
+    requiredHour: string
 
 }
 
@@ -64,10 +79,11 @@ export const Form = (FromProps:FromProps) => {
                   type="text"
                   id='name'
                   {...register("name",
-                    {required: "El nombre es obligatorio",
-                    minLength:{value: 2, message: "El nombre es muy corto"},
-                    maxLength:{value: 60, message: "El nombre es muy largo"},
-                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, message: "El nombre solo puede contener letras"}}
+                    {required: (FromProps.requiredName),
+                    minLength:{value: 2, message: (FromProps.minLengthName)},
+                    maxLength:{value: 60, message: (FromProps.maxLengthName)},
+                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, 
+                    message: (FromProps.messageName)}}
                   )}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderName}
@@ -86,10 +102,11 @@ export const Form = (FromProps:FromProps) => {
                   type="text"
                   id='lastname'
                   {...register("lastname", 
-                    {required: "El apellido es obligatorio", 
-                    minLength:{value: 2, message: "El apellido es muy corto"}, 
-                    maxLength:{value: 60, message: "El apellido es muy largo"},
-                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, message: "El apellido solo puede contener letras"}}
+                    {required: (FromProps.requiredLastname), 
+                    minLength:{value: 2, message: (FromProps.minLengthLastname)}, 
+                    maxLength:{value: 60, message: (FromProps.maxLengthLastname)},
+                    pattern: {value: /^[a-zA-Z\sñÑüÜ]*$/i, 
+                    message: (FromProps.messageLastname)}}
                   )}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderLastName}
@@ -107,7 +124,8 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="date"
                   id='dateofborn'
-                  {...register("dateofborn", {required: "El fecha de nacimiento es obligatorio"})}
+                  {...register("dateofborn", 
+                  {required: (FromProps.requiredDateofborn)})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderDateOfBorn}
                 />
@@ -123,7 +141,8 @@ export const Form = (FromProps:FromProps) => {
                 </label>
                 <select
                   id='gender'
-                  {...register("gender", {required: "El genero es obligatorio"})}
+                  {...register("gender", 
+                  {required: (FromProps.requiredGender)})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   defaultValue=""
                 >
@@ -144,7 +163,8 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="number"
                   id='cellphone'
-                  {...register("cellphone", {required: "El numero de celular es obligatorio"})}
+                  {...register("cellphone", 
+                  {required: (FromProps.requiredCellphone)})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderCellPhone}
                 />
@@ -161,7 +181,10 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="text"
                   id='email'
-                  {...register("email", {required: "El correo es obligatorio", pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/i, message: "El email no es valido"}})}
+                  {...register("email", 
+                  {required: (FromProps.requiredEmail), 
+                  pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/i, 
+                  message: (FromProps.messageEmail)}})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500'
                   placeholder={FromProps.placeholderEmail}
                 />
@@ -178,7 +201,8 @@ export const Form = (FromProps:FromProps) => {
                 <input 
                   type="date"
                   id='date'
-                  {...register("date", {required: "El dia de la cita es obligatorio"})}
+                  {...register("date", 
+                  {required: (FromProps.requiredDate)})}
                   className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500' 
                   placeholder={FromProps.placeholderDate}
                 />
@@ -194,7 +218,8 @@ export const Form = (FromProps:FromProps) => {
                 </label>
               <select
                 id="hour"
-                {...register("hour", {required: "La hora de la cita es obligatorio"})}
+                {...register("hour", 
+                {required: (FromProps.requiredHour)})}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-500"
                 defaultValue=""
               >

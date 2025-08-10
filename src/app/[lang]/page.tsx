@@ -33,7 +33,23 @@ export default async function Home({params}: {params:Promise<{lang: 'es-ES' | 'e
         placeholderCellPhone={dict.ComponentsForm.placeholderCellPhone} 
         placeholderEmail={dict.ComponentsForm.placeholderEmail} 
         placeholderDate={dict.ComponentsForm.placeholderDate} 
-        placeholderHour={dict.ComponentsForm.placeholderHour}/>
+        placeholderHour={dict.ComponentsForm.placeholderHour}
+        requiredName={dict.ComponentsForm.requiredName}
+        minLengthName={dict.ComponentsForm.minLengthName}
+        maxLengthName={dict.ComponentsForm.maxLengthName}
+        messageName={dict.ComponentsForm.messageName}
+        requiredLastname={dict.ComponentsForm.requiredLastname}
+        minLengthLastname={dict.ComponentsForm.minLengthLastname}
+        maxLengthLastname={dict.ComponentsForm.maxLengthLastname}
+        messageLastname={dict.ComponentsForm.messageLastname}
+        requiredDateofborn={dict.ComponentsForm.requiredDateofborn}
+        requiredGender={dict.ComponentsForm.requiredGender}
+        requiredCellphone={dict.ComponentsForm.requiredCellphone}
+        requiredEmail={dict.ComponentsForm.requiredEmail}
+        messageEmail={dict.ComponentsForm.messageEmail}
+        requiredDate={dict.ComponentsForm.requiredDate}
+        requiredHour={dict.ComponentsForm.requiredHour}
+        />
       </main>
     </section>
   );
